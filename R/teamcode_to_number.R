@@ -1,0 +1,32 @@
+#' Converts team codes into numbers
+#'
+#' Each team in SSNAP has its own TeamCode, which is a string used to
+#' refer to all records associated with that team.
+#' 
+#' Acute teams are represented by a 3-digit number.
+#' Community teams are represented by C followed by a 3-digit number.
+#' Fake teams have number values over 900 (C900 for fake community
+#' teams).
+#'
+#' It is much quicker to evaluate team codes if we treat C teams as
+#' 'negative' and inpatient teams as 'positive' numbers - checking
+#' for a community team simply means looking for values less than 0.
+#'
+#' At present we simply substitute C for - and convert the result to
+#' an integer; although in the future we may need to do more complex
+#' mapping so you should use this function rather than doing the
+#' conversion yourself.
+#'
+#' This is mainly for internal use as part of the data onboarding
+#' process; however there may be circumstances where you need to do
+#' the same conversion outside of SSNAPInterface.
+#' @param x A character vector of team codes.
+#' @return A numeric vector of team numbers.
+#' @export
+
+teamcode_to_number <- function(x) {
+  as.integer(sub("C",
+                 "-",
+                 x,
+                 ignore.case = TRUE))
+}

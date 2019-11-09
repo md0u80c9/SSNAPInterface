@@ -1,0 +1,56 @@
+Package: ssnapinterface
+Type: Package
+Title: Stroke Sentinel National Audit Project (SSNAP) Data Interface
+Version: 0.0.1
+Authors@R: c(person(given = "Andrew", family = "Hill",
+  role = c("pdr", "aut", "cre"),
+  email = "andrew.hill@doctors.org.uk",
+  comment = c(ORCID = "0000-0002-2875-0546")),
+  person(given = "Lizz", family = "Paley",
+  role = c("anl", "aut"),
+  email = "lizz.paley@rcplondon.ac.uk"),
+  person(given = "Victoria", family = "McCurran",
+  role = c("anl", "aut"),
+  email = "victoria.mccurran@rcplondon.ac.uk"),
+  person(given = "Ben", family = "Bray",
+  role = c("rth", "aut"),
+  email = "benjamin.bray@kcl.ac.uk"),
+  person("SSNAP",
+  role = c("cph", "fnd"),
+  email = "ssnap@strokeaudit.org"))
+Description: Prepares data from CSV files of SSNAP data to use with
+  the 'ssnapstats' package.
+License: Mozilla Public License
+Encoding: UTF-8
+LazyData: true
+Depends:
+  R (>= 3.4.0),
+Imports:
+  tibble (>= 2.1.3),
+  dplyr (>= 0.8.1),
+  vroom (>= 1.0.1),
+  rlang (>= 0.3.4),
+  readr (>= 1.3.1),
+  glue (>= 1.3.1),
+  stringr (>= 1.4.0),
+  purrr (>= 0.3.2)
+URL:
+  https://ssnap.github.io/SSNAPInterface/index.html,
+  https://github.com/SSNAP/SSNAPInterface,
+  http://www.strokeaudit.org
+BugReports: https://github.com/SSNAP/SSNAPInterface/issues
+Collate:
+  'read_csv.R'
+  'teamcode_to_number.R'
+  'internal_column_types.R'
+  'internal_simplify_dataset.R'
+  'ssnap_measure_to_raw_csv_columns.R'
+  'unsafe_convert_ethnicity_codes.R'
+  'ssnap_column_operation.R'
+  'record_transform_classes.R'
+  'transform_csv_to_pt_level_datatable.R'
+RoxygenNote: 6.1.1
+Suggests: 
+  testthat,
+  roxygen2,
+  pkgdown

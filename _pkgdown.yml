@@ -1,0 +1,51 @@
+url: http://strokeaudit.org
+
+authors:
+  Andrew Hill:
+    href: https://www.linkedin.com/in/andrew-hill-39437177/
+  Ben Bray:
+    href: https://www.linkedin.com/in/ben-bray-a1380331/
+  Lizz Paley:
+    href: https://www.linkedin.com/in/lizz-paley-b3a509155/
+  Victoria McCurran:
+    href: https://www.linkedin.com/in/victoria-mccurran-69b43b91/
+  SSNAP:
+    href: https://www.strokeaudit.org
+    html: "<img src='https://www.strokeaudit.org/App_Themes/SSNAP/Images/SSNAPlogo.jpg?v=2'>"
+
+development:
+  mode: unreleased
+
+reference:
+  - title: Read
+    desc:  Read in SSNAP data exported from the website as CSV files.
+    contents:
+    - read_ssnap_csv
+  - title: Bitfields
+    desc:  >
+      Groups of non-exclusive booleans are stored for efficiency as
+      integers. Each bit for each field is named in these vectors.
+    contents:
+    - tpa_no_but
+    - tpa_complications
+  - title: Lookup functions
+    desc:  >
+      Some fields are values which we want to 'look up' in
+      related tables later.
+    contents:
+    - teamcode_to_number
+  - title: Internal functions
+    desc:  >
+      These are used within the code but are not exported; you only
+      need to know how they work if you are modifying SSNAPInterface.
+    contents:
+    - starts_with("internal_")
+  - title: In progress / unsafe functions
+    desc:  >
+      Functions in this category are recognised as being important.
+      However they haven't been fully tested, or their API or
+      precise role within the code hasn't been determined so should
+      not be part of the fixed code. They start with the name
+      "unsafe" until they are more complete and/or tested.
+    contents:
+    - starts_with("unsafe_")
